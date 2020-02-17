@@ -1,0 +1,49 @@
+<html>
+ <head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script>
+        AFRAME.registerComponent("foo", {
+        init: function() {
+          this.el.addEventListener("click", (e)=>{
+            // console.log(document.querySelector('a-sky').getAttribute('src'))
+            const current_background = document.querySelector('a-sky').getAttribute('src');
+            const backgroundElement = document.querySelector('a-sky')
+            if(current_background == '#pano02'){
+  backgroundElement.setAttribute('src','#pano03')
+            }else{
+              backgroundElement.setAttribute('src','#pano02')
+            }
+            // document.querySelector('a-sky').setAttribute('src','#pano03')
+            })
+        }
+        })
+        </script>
+</head>
+  <body>
+  <a-scene cursor="rayOrigin: mouse" background ="color: #fff">
+  <a-assets > 
+                <img id="uwimap" src = "img/uwimap.png"/>
+                <img id="pano01" src="img/pano01.jpg" />
+                <img id="pano02" src="img/pano02.jpg" />
+                <img id="pano03" src="img/pano03.jpg" />
+                <img id="pano04" src="img/pano04.jpg" />
+                <img id="pano05" src="img/pano05.jpg" />
+                <img id="pano06" src="img/pano06.jpg" />
+            </a-assets>
+
+
+            
+                <a-entity link= "href: index.html" id="menu" position="0 0.2 0" follow="target: a-camera">
+                    <a-image id="map_image" src="#uwimap" rotation="90 180 0" position="0 0 -0.65" height="0.65" width="1.7"></a-image>
+                </a-entity>
+           
+
+             <a-sky id="skybox" src="#pano02" >
+
+                
+                <a-image src="#arrow"  color="red" rotation="-60 5 -7" position="0.04 0 -3" height="1.9" width="0" foo>
+                </a-image>
+             </a-sky>
+  </body>
+</html>

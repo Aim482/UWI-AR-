@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js">
+     // my thought process is that instead of having 1 long code with dozens of functions. It should be a series of html pages with a manageable amount of code and each 
+      // making it easier to navigate and correct in the case of errors </script>
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse" background ="color: #fff">
+           <a-assets > 
+                <img id="uwimap" src = "img/uwimap.png"/>
+                <img id="pano01" src="img/pano01.jpg" />
+                <img id="pano02" src="img/pano02.jpg" />
+                <img id="pano03" src="img/pano03.jpg" />
+                <img id="pano04" src="img/pano04.jpg" />
+                <img id="pano05" src="img/pano05.jpg" />
+                <img id="pano06" src="img/pano06.jpg" />
+            </a-assets>
+
+      <a-plane src="#uwimap" position="0 1.5 -4" rotation=" 0 0 0" width="13" height="5.5" color="#7BC8A4"> </a-plane> 
+
+      
+       <a-entity  link= "href:main.html" position= "0.8 1.7 -2 "  geometry="primitive: circle; radius: 0.1"  material="side: double; color:red"
+          animation = "property: rotation; to: 0 360 0; loop: true; dur: 10000;" 
+       > </a-entity>
+    
+     
+        
+     
+        <a-entity  link= "href: secondary.html" position= ".2 1.7 -2 "  geometry="primitive: circle; radius: 0.1"  material="side: double; color:red"
+           animation = "property: rotation; to: 0 360 0; loop: true; dur: 10000;" 
+        > </a-entity>
+       
+        
+       <a-sky color="#ff5733"></a-sky>
+      
+
+
+          
+        
+    </a-scene>
+  </body>
+</html>
